@@ -12,6 +12,6 @@ namespace Application.Abstractions
         DbSet<Product> Products { get; set; }
         DbSet<User> Users { get; set; }
 
-        Task<int> SaveChangesAsync(CancellationToken token =default);
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
