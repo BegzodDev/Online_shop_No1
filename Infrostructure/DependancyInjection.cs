@@ -8,10 +8,16 @@ namespace Infrostructure
 {
     public static class DependancyInjection 
     {
-        public static IServiceCollection AddInfrostructureLayer(this IServiceCollection services,IConfiguration configuration)
+        public static IServiceCollection AddInfrostructureLayer(this IServiceCollection services,
+            IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaltConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+            
+
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
             return services;
         }
 
