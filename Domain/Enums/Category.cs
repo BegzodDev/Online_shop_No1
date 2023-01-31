@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Enums
 {
-    internal class Category
+    public enum Category
     {
+        Phones = 1,
+        Tvs,
+        Laptops,
+        WashingMachines,
+        Sports,
+        Clothes,
+        Cars
     }
 }

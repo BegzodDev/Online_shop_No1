@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Enums
 {
-    internal class PaymentMonth
+    public enum PaymentMonth
     {
+        Six = 6,
+        Twelve =12,
+        Eighteen,
+        Twentyfour
+        
     }
 }
