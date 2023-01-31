@@ -13,8 +13,6 @@ namespace Infrostructure
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaltConnection")));
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             return services;
-
-
         }
 
 
