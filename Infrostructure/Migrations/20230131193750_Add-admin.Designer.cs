@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrostructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230131154822_initial")]
-    partial class initial
+    [Migration("20230131193750_Add-admin")]
+    partial class Addadmin
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -175,6 +175,18 @@ namespace Infrostructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Balance = 100000000m,
+                            CardNumber = "1111 2222 3333 4444",
+                            Email = "admin@gmail.com",
+                            Fullname = "Admin Adminov",
+                            PasswordHash = "123456",
+                            Role = 1
+                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Order", b =>

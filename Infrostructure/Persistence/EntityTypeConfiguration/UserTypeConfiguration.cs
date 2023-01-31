@@ -17,6 +17,7 @@ namespace Infrostructure.Persistence.EntityTypeConfiguration
 
             builder.HasData(new User
             {
+                Id = 1,
                 Fullname = "Admin Adminov",
                 Email = "admin@gmail.com",
                 Role = Domain.Enums.UserRole.Admin,
