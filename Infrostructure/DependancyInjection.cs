@@ -10,7 +10,7 @@ namespace Infrostructure
     {
         public static IServiceCollection AddInfrostructureLayer(this IServiceCollection services,IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaltConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             return services;
         }
