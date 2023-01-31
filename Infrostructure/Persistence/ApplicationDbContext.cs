@@ -1,11 +1,7 @@
 ﻿using Application.Abstractions;
 using Domain.Models;
+using Infrostructure.Persistence.EntityTypeConfiguration;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrostructure.Persistence
 {
@@ -21,5 +17,18 @@ namespace Infrostructure.Persistence
         public DbSet<PaymentCheck> PaymentChecks { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new UserTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailsTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new PaymentCheckTypeConfiguration());
+
+        }
     }
 }
