@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Enums
 {
-    internal class PurchaseType
+    public  enum PurchaseType
     {
+        AttheMoment = 1,
+        AtTheMonths
     }
 }

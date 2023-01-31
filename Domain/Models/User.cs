@@ -5,6 +5,11 @@ namespace Domain.Models
 {
     public class User
     {
+        public User()
+        {
+            PaymentChecks= new HashSet<PaymentCheck>();
+            Orders= new HashSet<Order>();
+        }
         public int Id { get; set; }
 
         public string Fullname { get; set; }
@@ -18,6 +23,14 @@ namespace Domain.Models
         public decimal Balance { get; set; }
 
         public string CardNumber { get; set; }
+
+
+
+        public ICollection<Order> Orders { get; set; }
+
+        public ICollection<PaymentCheck> PaymentChecks { get; set; }
+
+
 
     }
 }
