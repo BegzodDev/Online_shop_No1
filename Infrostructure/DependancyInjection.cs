@@ -12,7 +12,6 @@ namespace Infrostructure
             IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
-            
 
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
