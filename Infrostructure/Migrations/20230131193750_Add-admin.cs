@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrostructure.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Addadmin : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -123,6 +123,11 @@ namespace Infrostructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Balance", "CardNumber", "Email", "Fullname", "PasswordHash", "Role" },
+                values: new object[] { 1, 100000000m, "1111 2222 3333 4444", "admin@gmail.com", "Admin Adminov", "123456", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_OrderId",

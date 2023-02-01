@@ -15,7 +15,16 @@ namespace Infrostructure.Persistence.EntityTypeConfiguration
             builder.Property(x =>x.Email).IsRequired();
             builder.Property(x=>x.Fullname).HasMaxLength(50).IsRequired();
 
-
+            builder.HasData(new User
+            {
+                Id = 1,
+                Fullname = "Admin Adminov",
+                Email = "admin@gmail.com",
+                Role = Domain.Enums.UserRole.Admin,
+                Balance = 100000000,
+                CardNumber = "1111 2222 3333 4444",
+                PasswordHash = "123456"
+            });
         }
     }
 }
