@@ -39,10 +39,13 @@ namespace Infrostructure.Migrations
                     b.Property<int>("PurchaseType")
                         .HasColumnType("integer");
 
-
+                    b.Property<int?>("UserId")
+                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -114,7 +117,9 @@ namespace Infrostructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
-
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<int>("Percent")
                         .HasColumnType("integer");
@@ -151,7 +156,8 @@ namespace Infrostructure.Migrations
 
                     b.Property<string>("Fullname")
                         .IsRequired()
-
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
@@ -162,6 +168,8 @@ namespace Infrostructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
@@ -170,7 +178,7 @@ namespace Infrostructure.Migrations
                 {
                     b.HasOne("Domain.Models.User", "User")
                         .WithMany("Orders")
-
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
